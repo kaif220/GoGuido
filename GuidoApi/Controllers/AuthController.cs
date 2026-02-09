@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using GuidoApi.DTOs;
-using GuidoApi.Services;
 
 
 namespace GuidoApi.Controllers
