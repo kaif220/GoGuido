@@ -1,0 +1,11 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: goguido-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "GoGuido@12345"
+    ports: ["1433:1433"]
+    volumes: ["goguido-data:/var/opt/mssql"]
+volumes:
+  goguido-data:
