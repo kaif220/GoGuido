@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoGuido — Hire Verified Local Guides for India's Monuments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="#" onclick="show('home')">Go<span>Guido</span></a>
+  <nav id="navLinks"></nav>
+</header>
+
+<section id="view-home" class="view">
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Incredible India · Verified Local Guides</p>
+      <h1>Walk through history<br>with someone who <em>lives</em> it.</h1>
+      <p class="sub">Taj Mahal, Agra Fort, Fatehpur Sikri, Red Fort, Amber Fort and more — hire government-verified guides in one tap.</p>
+      <div class="hero-cta">
+        <button class="btn gold" onclick="go('explore')">Explore Monuments</button>
+        <button class="btn ghost" onclick="go('guides')">Find a Guide</button>
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="arch-bg"></div>
+  </div>
+
+  <div class="wrap" id="explore">
+    <h2 class="sec">Explore by <em>city</em></h2>
+    <div class="chips" id="cityChips"></div>
+    <div class="filters">
+      <input id="mSearch" placeholder="Search monuments…" oninput="loadMonuments()">
+      <label class="chk"><input type="checkbox" id="mUnesco" onchange="loadMonuments()"> UNESCO sites only</label>
+    </div>
+    <div class="grid" id="monuments"></div>
+  </div>
+
+  <div class="wrap" id="guides">
+    <h2 class="sec">Verified <em>guides</em></h2>
+    <div class="filters">
+      <select id="gCity" onchange="loadGuides()"></select>
+      <select id="gLang" onchange="loadGuides()">
+        <option value="">Any language</option><option>English</option><option>Hindi</option><option>French</option>
+        <option>German</option><option>Spanish</option><option>Urdu</option><option>Punjabi</option>
+      </select>
+      <select id="gSort" onchange="loadGuides()">
+        <option value="rating">Top rated</option><option value="price">Lowest price</option><option value="experience">Most experienced</option>
+      </select>
+    </div>
+    <div class="grid g3" id="guideList"></div>
+  </div>
+</section>
+
+<section id="view-trips" class="view wrap hidden"><h2 class="sec" id="tripsTitle">My <em>trips</em></h2><div id="tripList"></div></section>
+<section id="view-guide" class="view wrap hidden">
+  <h2 class="sec">Guide <em>dashboard</em></h2>
+  <div class="panel" id="guideForm"></div>
+  <h3 class="sub-h">Hire requests</h3><div id="guideTrips"></div>
+</section>
+<section id="view-admin" class="view wrap hidden">
+  <h2 class="sec">Admin <em>console</em></h2>
+  <div class="stats dark" id="adminStats"></div>
+  <h3 class="sub-h">Guide KYC verification</h3><div id="adminGuides"></div>
+</section>
+
+<footer>© GoGuido · Made for explorers of incredible India · Entry fees shown are approximate for Indian citizens.</footer>
+
+<div id="modal" class="modal hidden"><div class="modal-box"><button class="x" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
